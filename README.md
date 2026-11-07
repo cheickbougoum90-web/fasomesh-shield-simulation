@@ -10,12 +10,11 @@ Projet présenté au **Prix du Jeune Inventeur du Faso, édition 2026**.
 
 ## Vidéo de la simulation
 
-<!-- Remplacez VIDEO_ID par l'identifiant YouTube, puis ajoutez docs/media/demo-miniature.png -->
+[![Voir la vidéo de démonstration](docs/media/demo-miniature.png)](docs/media/demo-simulation.mp4)
 
-[![Voir la vidéo de démonstration](docs/media/demo-miniature.png)](https://www.youtube.com/watch?v=VIDEO_ID)
+**Cliquez sur l'image pour lancer la vidéo** (environ 25 minutes, 25 Mo, lecture directement dans GitHub). Le fichier est dans `docs/media/demo-simulation.mp4`.
 
-> 🎬 **Vidéo à venir.** Dès qu'elle sera publiée, le lien ci-dessus l'ouvrira.
-> Consignes d'hébergement et de tournage : [`docs/media/README.md`](docs/media/README.md).
+> Consignes pour remplacer ou mettre à jour la vidéo : [`docs/media/README.md`](docs/media/README.md).
 
 ---
 
