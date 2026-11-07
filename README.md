@@ -10,7 +10,7 @@ Projet présenté au **Prix du Jeune Inventeur du Faso, édition 2026**.
 
 ## Vidéo de la simulation
 
-[![Voir la vidéo de démonstration](docs/media/demo-miniature.png)](docs/media/demo-simulation.mp4)
+[![Voir la vidéo de démonstration](docs/media/demo-miniature.png)]([docs/media/demo-simulation.mp4](https://esmtsn-my.sharepoint.com/:v:/g/personal/abdoulaziz_bougoum_etu_esmt_sn/IQAmXTT5OXCnQLDkNWsCDb3YAbAzjKyXAl8x_1pUnrU1alc?e=cOtIeC))
 
 **Cliquez sur l'image pour lancer la vidéo** (environ 25 minutes, 25 Mo, lecture directement dans GitHub). Le fichier est dans `docs/media/demo-simulation.mp4`.
 
