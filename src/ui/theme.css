@@ -1,0 +1,278 @@
+@import 'tailwindcss';
+
+/* ── Identité FasoMesh Shield ────────────────────────────────────────────────
+   Vert « Faso » profond = confiance / résilience, ambre = vigilance,
+   rouge réservé aux alertes critiques. Contraste élevé pour une lecture
+   en extérieur, cibles tactiles généreuses (≥ 44 px). */
+@theme {
+  --color-brand-50: #e9f7f1;
+  --color-brand-100: #d1efe3;
+  --color-brand-200: #a5dfc9;
+  --color-brand-500: #17926b;
+  --color-brand-600: #0e7c5a;
+  --color-brand-700: #0b6449;
+  --color-brand-800: #084b37;
+
+  --color-ink: #0f172a;
+  --color-ink-soft: #475569;
+  --color-ink-mute: #7c8aa0;
+  --color-line: #e4e9f0;
+  --color-canvas: #f3f6f9;
+  --color-surface: #ffffff;
+
+  --color-info: #2563eb;
+  --color-info-soft: #e8f0fe;
+  --color-warn: #d97706;
+  --color-warn-soft: #fdf2e2;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fdecec;
+  --color-success: #16803c;
+  --color-success-soft: #e7f6ec;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    background: #e7ecf2;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  ::selection {
+    background: var(--color-brand-200);
+  }
+}
+
+/* Route active affichée sur la carte : défilement « paquet en circulation ». */
+@keyframes route-flow {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+.route-flow {
+  stroke-dasharray: 10 8;
+  animation: route-flow 1.1s linear infinite;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise-in {
+  animation: rise-in 0.28s ease-out both;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.82);
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* ── Centre de supervision (console d'administration, thème sombre) ────────
+   Fonds très sombres, voyants saturés, filets fins : conventions d'un poste
+   de supervision télécom. Le thème est isolé dans la classe `.noc` pour ne
+   pas modifier l'application civile. */
+.noc {
+  --noc-bg: #070b11;
+  --noc-panel: #0d141d;
+  --noc-panel-2: #111b26;
+  --noc-line: #1e2c3b;
+  --noc-text: #d9e4ef;
+  --noc-mute: #7f93a8;
+  --noc-accent: #35d0a5;
+  --noc-cyan: #38bdf8;
+  --noc-amber: #f7b955;
+  --noc-rose: #fb6f7e;
+  min-height: 100dvh;
+  background:
+    radial-gradient(1100px 520px at 18% -12%, rgba(53, 208, 165, 0.09), transparent 62%),
+    radial-gradient(900px 460px at 92% 0%, rgba(56, 189, 248, 0.08), transparent 60%),
+    var(--noc-bg);
+  color: var(--noc-text);
+}
+
+.noc-panel {
+  background: color-mix(in srgb, var(--noc-panel) 92%, transparent);
+  border: 1px solid var(--noc-line);
+  border-radius: 14px;
+}
+
+.noc-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--noc-mute);
+}
+
+.noc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 11px;
+  border-radius: 9px;
+  border: 1px solid var(--noc-line);
+  background: var(--noc-panel-2);
+  color: var(--noc-text);
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: 0.15s ease;
+  cursor: pointer;
+}
+.noc-btn:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--noc-accent) 55%, var(--noc-line));
+  color: #fff;
+}
+.noc-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.noc-btn-active {
+  background: color-mix(in srgb, var(--noc-accent) 20%, transparent);
+  border-color: color-mix(in srgb, var(--noc-accent) 65%, transparent);
+  color: var(--noc-accent);
+}
+.noc-btn-danger {
+  border-color: color-mix(in srgb, var(--noc-rose) 45%, var(--noc-line));
+  color: var(--noc-rose);
+}
+.noc-btn-success {
+  border-color: color-mix(in srgb, var(--noc-accent) 45%, var(--noc-line));
+  color: var(--noc-accent);
+}
+
+.noc-input {
+  width: 100%;
+  height: 32px;
+  padding: 0 9px;
+  border-radius: 9px;
+  border: 1px solid var(--noc-line);
+  background: var(--noc-panel-2);
+  color: var(--noc-text);
+  font-size: 12.5px;
+  outline: none;
+}
+.noc-input:focus {
+  border-color: color-mix(in srgb, var(--noc-accent) 65%, transparent);
+}
+
+.noc-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--noc-line);
+  background: var(--noc-panel-2);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--noc-mute);
+  white-space: nowrap;
+}
+
+.noc-sim {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px dashed color-mix(in srgb, var(--noc-amber) 60%, transparent);
+  color: var(--noc-amber);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.noc-led {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  box-shadow: 0 0 9px currentColor;
+}
+
+.noc-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #223244 transparent;
+}
+.noc-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.noc-scroll::-webkit-scrollbar-thumb {
+  background: #223244;
+  border-radius: 999px;
+}
+.noc-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Paquet en déplacement : halo coloré selon la priorité. */
+@keyframes packet-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+.packet-pulse {
+  animation: packet-pulse 0.9s ease-in-out infinite;
+}
+
+/* Anneau d'activité autour d'un nœud qui émet ou reçoit. */
+@keyframes activity-ring {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+.activity-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: activity-ring 1.1s ease-out infinite;
+}

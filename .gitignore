@@ -1,0 +1,10 @@
+node_modules/
+dist/
+dev.log
+*.zip
+.DS_Store
+.local/
+.env
+*.log
+coverage/
+.vscode/
